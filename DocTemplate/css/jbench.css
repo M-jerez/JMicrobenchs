@@ -1,0 +1,78 @@
+.JbenchReport{
+clear: both;
+overflow: hidden;
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 38%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(38%,rgba(255,255,255,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 38%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,1) 38%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,1) 38%,rgba(237,237,237,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 38%,rgba(237,237,237,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+}
+.JbenchReport .small{
+	width: 50%;
+	float:left;
+}
+.JbenchReport  h3{
+	/*  
+		!!!!! IMPORTANT !!!!!!! 
+		The height of the class ".code_info" is automatically calculated by the system.
+		For this to be done the total size if this class ".code_tittle"
+		must be 40px, including margins, borders etc..	
+	*/ 
+	color:#3E576F !important;
+	font:normal 16px 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif !important;
+	line-height:20px !important;
+	vertical-align:middle !important;
+	margin:0 !important;
+	padding:10px !important;
+	text-align: center !important;
+}
+.JbenchReport .codeContainer{
+	overflow:auto;
+}
+.JbenchReport h4{
+	margin: 0;
+	font: normal 12px 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif !important;
+	color:#6D869F !important;	
+	float:left !important;
+	width: 160px !important;
+	padding: 5px !important;
+	overflow: hidden !important;
+	/*background: #f6f6f6;*/
+}
+.JbenchReport table{
+	border-collapse:collapse !important;
+	width: 100% !important;
+	border:none !important;
+}
+.JbenchReport table tr{
+	border:none !important;
+	margin:0 !important;
+	padding:0 !important;
+	border-bottom: 1px solid #ccc !important;
+}
+.JbenchReport table td{
+	padding: 5px !important;
+	border:none !important;
+	margin:0 !important;
+	font: normal 100% 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif !important;
+	text-align: left !important;
+	vertical-align: middle !important;
+}
+.JbenchReport .codeInfo{
+	width: 170px;
+}
+.JbenchReport .code{
+	background: #3F3F3F;
+	padding-left: 10px;
+	
+}
+.JbenchReport pre{
+	margin: 3px !important;
+	padding: 0 !important;
+	border:none !important;
+	background: none !important;
+	overflow: hidden !important;
+}

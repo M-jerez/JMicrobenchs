@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/jbench.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/zenburn.css" media="screen" />
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/scriptbreaker-multiple-accordion-1.js"></script>
+<script type="text/javascript" src="js/highlight.js"></script>
+<script type="text/javascript" src="js/highcharts.js"></script>
+
+<script type="text/javascript">
+	if (typeof jQuery == 'undefined')
+	{document.write(unescape("%3Cscript src='/js/jquery-1.8.2.min.js' type='text/javascript'%3E%3C/script%3E"));}
+	$(document).ready(function() {
+		
+	$("#navigation").accordion({
+		accordion:false,
+		speed: 500,
+		closedSign: '>',
+		openedSign: '^'
+	});
+		
+	});
+</script>
+
+<title>{{page.title}}</title>
+</head>
+<body>
+
+
+<header id="headerSection" class="absolute">
+	<div id="topMenu"><h2>Java micro-benchmarks made easy.</h2></div>
+	<div class="title">
+		<div id="title"><img src="images/logox64.png" ></img><a href="index.html">JMicrobenchs.</a></div>	
+		<div class="links">
+			<a href="https://github.com/M-jerez/JMicrobenchs" target="blank" class="cupid-green">
+				View project on <strong>GitHub</strong>
+			</a>
+			<a href="https://github.com/M-jerez/JMicrobenchs/zipball/master" class="cupid-green">
+            	Download <strong>.zip file</strong>
+          	</a>
+          	<a href="https://github.com/M-jerez/JMicrobenchs/tarball/master" class="cupid-green">
+            	Download <strong>.tar file</strong>
+          	</a>
+		</div>			
+	</div>	
+</header>
+
+<div id="contentSection" >
+	<div id="left">
+			<ul id="navigation">
+				{% for post in site.posts %}
+				<li><a href="#"  title="{{ post.title }}">{{ post.title }}</a> 
+					<ul>
+				 	{% for header in post.headers %}				 		
+				 		<li><a href="{{post.url}}#{{header.id}}">{{ header.title}}</a></li>
+				 	{% endfor %}				 		
+				 	</ul>
+				</li>
+				{% endfor %}
+				
+			</ul>
+		</div>
+	
+	<div id="content">
+		<section id="main-content">
+			{{content}}
+        </section>
+	</div>
+</div>
+
+
+<footer>
+	<p>Project &#38; Website developed and mantained by 
+		<a href="http://www.linkedin.com/in/mjerez1" target="blank" title="mjerez Linkeding profile">
+			M-jerez
+		</a> 
+		&#169; All rights reserved
+	</p>
+</footer>
+</body>
+</html>
