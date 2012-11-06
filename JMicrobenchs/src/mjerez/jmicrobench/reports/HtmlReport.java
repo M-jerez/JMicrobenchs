@@ -78,7 +78,8 @@ public class HtmlReport {
 	}
 	
 	
-	/** @return The generated HTml*/
+	/** Gets the generated HTml.
+	 * @return A string in HTml format*/
 	protected String getHtml(){
 		StringBuffer sb = new StringBuffer(300);
 		for (PhasesProfiler prof : Registry.getAllPhasesProfilers()) {			

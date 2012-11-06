@@ -41,24 +41,26 @@ public class BenchmarkRunner {
 	/** number of loops in the {@link Phase#PROFILING} of the current running benchmark. */
 	private static long benchID;
 
-	/** @return the current {@link Phase} of the current running benchmark. */
+	/** Gets the current {@link Phase} of the current running benchmark.
+	 * @return the current {@link Phase} */
 	public synchronized static Phase getPhase(){
 		return phase;
 	}
 	
-	/** @return the number of loops in the {@link Phase#PROFILING} of the current running benchmark. */
+	/** Gets the number of loops in the {@link Phase#PROFILING} of the current running benchmark.
+	 * @return the number of loops. */
 	public synchronized static int getProfilengLoops(){
 		return profileLoops;
 	}
 	
-	/** @return the Id of the current running benchmark. */
+	/** Gets the Id of the current running benchmark.
+	 * @return long Id value. */
 	public synchronized static long getBenchID(){
 		return benchID;
 	}
 	
 	/** Enable/disable the functionality to print to the system.err when each phase starts and ends.
-	 * @param printPhase
-	 */
+	 * @param printPhase */
 	public static void setPrintPhase(boolean printPhase) {
 		BenchmarkRunner.printPhase = printPhase;
 	}

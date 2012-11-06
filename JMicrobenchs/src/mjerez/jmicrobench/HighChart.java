@@ -329,53 +329,65 @@ public class HighChart {
 		return gson.toJson(this);
 	}
 
-	/** @return the chart */
+	/** Gets the {@link #chart} of this object.
+	 * @return the chart */
 	public chart getChart() {
 		return chart;
 	}
 
-	/** @param chart the chart to set */
+	/** Sets the {@link #chart} of this object.
+	 * @param chart the chart to set */
 	public void setChart(chart chart) {
 		this.chart = chart;
 	}
 
-	/**  @return the title */
+	/**  Gets the title of this object.
+	 * @return the title */
 	public title getTitle() {
 		return title;
 	}
 
-	/** @param title the title to set */
+	/** Sets the title of this object.
+	 * @param title the title to set */
 	public void setTitle(title title) {
 		this.title = title;
 	}
 
-	/** @return the subtitle */
+	/** Gets the subTitle of this object.
+	 * @return the subtitle */
 	public subtitle getSubtitle() {
 		return subtitle;
 	}
 
-	/** @param subtitle the subtitle to set */
+	/** Sets the subtitle of this object.
+	 * @param subtitle the subtitle to set */
 	public void setSubtitle(subtitle subtitle) {
 		this.subtitle = subtitle;
 	}
 
-	/** @return the series */
+	/** Gets the {@link #series} of this object.
+	 * @return the series */
 	public series[] getSeries() {
 		return series;
 	}
 
-	/** @param series the series to set */
+	/** Gets the {@link #series} of this object
+	 * @param series the series to set */
 	public void setSeries(series[] series) {
 		this.series = series;
 	}
 
-	/** @return the xAxis */
+	/** Gets the {@link #xAxis} of this object
+	 * @return the xAxis */
 	public xAxis getxAxis() {
 		return xAxis;
 	}
 
-	/** @param xAxis the xAxis to set */
+	/** Sets the {@link #xAxis} of this object
+	 * @param xAxis the xAxis to set */
 	public void setxAxis(xAxis xAxis) {
 		this.xAxis = xAxis;
 	}
+	
+	protected HighChart(){}
 }

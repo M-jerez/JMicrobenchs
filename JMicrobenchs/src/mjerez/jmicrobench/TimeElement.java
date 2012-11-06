@@ -73,12 +73,14 @@ public class TimeElement {
 		endLine = ste[stakIndex].getLineNumber();
 	}
 	
-	/** @return An id of code block*/
+	/** Gets An id of code block.
+	 * @return An string id.*/
 	public String getCodeId(){
 		return "code_"+this.hashCode();
 	}
 	
-	/** @return the endline of the code */
+	/** Gets the number of line where the code ends.
+	 * @return a number of line. */
 	public int getEndLine(){
 		return endLine;
 	}
@@ -101,36 +103,36 @@ public class TimeElement {
 		return Math.round(x*precisionMicros)/precisionMicros;
 	}
 
-	/**
+	/** Gets the name of the class that execute the measured code. 
 	 * @return the runClass
 	 */
 	public String getRunClass() {
 		return runClass;
 	}
 
-	/**
-	 * @return the startLine
+	/** Gets the number of line where the code starts.
+	 * @return a number of line.
 	 */
 	public int getStartLine() {
 		return startLine;
 	}
 
-	/**
-	 * @param startLine the startLine to set
+	/** Sets the number of line where the code starts.
+	 * @param startLine the startLine to set.
 	 */
 	public void setStartLine(int startLine) {
 		this.startLine = startLine;
 	}
 
-	/**
-	 * @return the title
+	/** Gets the title of this object.
+	 * @return the title.
 	 */
 	public String getTitle() {
 		return title;
 	}
 
-	/**
-	 * @return the color
+	/** Gets the color of this object in format #00ff88.
+	 * @return the String html color.
 	 */
 	public String getColor() {
 		return color;

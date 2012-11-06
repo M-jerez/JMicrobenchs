@@ -90,22 +90,26 @@ public class TimeProfiler {
 	
 	
 	
-	/**  @return All {@link TimeElement} of this object. */
+	/**  Gets All {@link TimeElement} of this object.
+	 * @return A collection of {@link TimeElement} */
 	public Collection<TimeElement> getElements(){
 		return elements.values();
 	}
 	
-	/** @return and id of this object generated from HashCode. */
+	/** Gets the ID of this object generated from object.HashCode().
+	 * @return A ID String. */
 	public String getID(){
 		return "chartID"+this.hashCode();
 	}
 	
-	/** @return An id required to render the chart in the HTml document. */
+	/** Gets An id required to render the chart in the HTml document.
+	 * @return  A ID String.*/
 	public String getCointainerId(){
 		return "container_"+getID()+"_"+phase.toString();
 	}
 	
-	/** @return the {@link HighChart} object. */
+	/** Gets the {@link HighChart} of this object.
+	 * @return A {@link HighChart} object. */
 	public HighChart getChart() {
 		if(hChart!=null) return hChart;
 		HighChart chart = new HighChart();
@@ -126,7 +130,8 @@ public class TimeProfiler {
 		return hChart;
 	}
 	
-	/** @return the series object required to draw the hightChart*/
+	/** Gets the {@link series} object required to draw the hightChart in milliseconds precision.
+	 * @return A {@link series} object.*/
 	private series[] getSeriesInMilliseconds(){		
 		low= Float.MAX_VALUE;
 		high=0;
@@ -146,7 +151,8 @@ public class TimeProfiler {
 		return series;
 	}
 	
-	/** @return the series object required to draw the hightChart*/
+	/** Gets the {@link series} object required to draw the hightChart in microseconds precision.
+	 * @return A {@link series} object.*/
 	private series[] getSeriesInMicroseconds(){	
 		low= Float.MAX_VALUE;
 		high=0;
@@ -167,7 +173,8 @@ public class TimeProfiler {
 	}
 	
 	
-	/** @return the categories required to draw the hightChart*/
+	/** Gets all the categories of the hightChart.
+	 * @return An array of strings*/
 	private String[] getCategories(){
 		Set<String> keys = elements.keySet();
 		String[] categories = new String[keys.size()];	
@@ -181,7 +188,8 @@ public class TimeProfiler {
 	
 
 
-	/** @return A short report in CSV format */
+	/** Gets this object in cvs format containing only info about time performance.
+	 * @return A String in CSV format */
 	public String getCSV(){
 		if(!enabled ) return null;
 		String s = "Category; time (millis) \n";
@@ -193,7 +201,8 @@ public class TimeProfiler {
 		return s;
 	}
 
-	/** @return the title of this object */
+	/** Gets the title of this object.
+	 * @return the title. */
 	public String getTitle() {
 		return title;
 	}
