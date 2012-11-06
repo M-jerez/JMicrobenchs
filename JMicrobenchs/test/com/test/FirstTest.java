@@ -31,36 +31,6 @@ public class FirstTest implements JMicrobench {
 		h.put("hello", "world");
 		tp.stopCount(t3);	
 		
-		tp.startCount(t1+1);
-		/* Nothing Executed here */
-		/* time consumed by startCount() & stopCount() */
-		tp.stopCount(t1+1);
-
-		/* Measures the time required to create a HashMap. */
-		tp.startCount(t2+1);
-		HashMap<String, String> h1 = new HashMap<String, String>();
-		tp.stopCount(t2+1);
-
-		/* Measures the time required for the put operation */
-		tp.startCount(t3+1);
-		h1.put("hello", "world");
-		tp.stopCount(t3+1);	
-		
-		tp.startCount(t1+2);
-		/* Nothing Executed here */
-		/* time consumed by startCount() & stopCount() */
-		tp.stopCount(t1+2);
-
-		/* Measures the time required to create a HashMap. */
-		tp.startCount(t2+2);
-		HashMap<String, String> h2 = new HashMap<String, String>();
-		tp.stopCount(t2+2);
-
-		/* Measures the time required for the put operation */
-		tp.startCount(t3+2);
-		h2.put("hello", "world");
-		tp.stopCount(t3+2);	
-		
 	}
 	
 	
@@ -73,7 +43,7 @@ public class FirstTest implements JMicrobench {
 
 		/* create & run the benchmark */
 		new BenchmarkRunner(warmupLoops, profileLoops,firstTest).run();
-		boolean drawLoad = true, drawProfiling=true, drawCode= true ,  bars=false, smallSize= true;
+		boolean drawLoad = false, drawProfiling=true, drawCode= true ,  bars=true, smallSize= true;
 		String path= "../test/";
 		/* generate the report & write to file */	
 		ReportOptions options = new  ReportOptions(drawLoad, drawProfiling, drawCode, bars, smallSize, path);

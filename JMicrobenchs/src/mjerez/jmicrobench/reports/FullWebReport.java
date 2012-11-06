@@ -24,10 +24,11 @@ import mjerez.jmicrobench.jtpl.Template;
 public class FullWebReport{
 	
 	/* Required files */
-	private static final String CSSFILE = "files/jbench-style.css";
+	private static final String CSSFILE = "files/jbench.css";
+	private static final String CSSHIGHLIGHT = "files/zenburn.css";
 	private static final String JQUERYFILE = "files/jquery-1.8.2.min.js";
 	private static final String HIGHCHARTSFILE = "files/highcharts.js";
-	private static final String JBENCHFILE = "files/jbench.js";
+	private static final String JBENCHFILE = "files/highlight.js";
 	
 	/* Template file and variables to replace in the template */
 	private static final String FULLWEBFILE = "files/fullweb.html";
@@ -84,7 +85,8 @@ public class FullWebReport{
 				
 				/* #styles# */
 				tpl.assign(VAR_STYLE, 
-						new Scanner(this.getClass().getResourceAsStream(CSSFILE)).useDelimiter("\\Z").next()+"\n"
+						new Scanner(this.getClass().getResourceAsStream(CSSFILE)).useDelimiter("\\Z").next()+"\n"+
+						new Scanner(this.getClass().getResourceAsStream(CSSHIGHLIGHT)).useDelimiter("\\Z").next()+"\n"
 						);			
 				
 				/* #scripts# */
