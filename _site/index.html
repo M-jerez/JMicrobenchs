@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/jbench.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="css/github.css" media="screen" />
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/scriptbreaker-multiple-accordion-1.js"></script>
+<script type="text/javascript" src="js/highlight.js"></script>
+<script type="text/javascript" src="js/highcharts.js"></script>
+
+<script type="text/javascript">
+	if (typeof jQuery == 'undefined')
+		{document.write(unescape("%3Cscript src='/js/jquery-1.8.2.min.js' type='text/javascript'%3E%3C/script%3E"));}	
+	$(document).ready(function() {
+		
+	$("#navigation").accordion({
+		accordion:false,
+		speed: 500,
+		closedSign: '>',
+		openedSign: '^'
+	});
+		
+	});
+</script>
+
+<title>Introduction to JMicrobenchs.</title>
+</head>
+<body>
+
+
+<!-- ****************** HEADER SECTION ******************************** -->
+<header id="headerSection" class="absolute">
+	<div id="topMenu"><h2>Java micro-benchmarks made easy.</h2></div>
+	<div class="title">
+		<div id="title"><img src="images/logox64.png" ></img><a href="index.html">JMicrobenchs.</a></div>	
+		<div class="links">
+			<a href="https://github.com/M-jerez/JMicrobenchs" target="blank" id="github">
+				View project on <strong>GitHub</strong>
+			</a>
+			
+		</div>			
+	</div>	
+</header>
+<!-- ****************** HEADER SECTION ******************************** -->
+
+
+<!-- **************************** CONTENT SECTION ******************************** -->
+<div id="contentSection" >
+	<div id="left">
+		<ul id="navigation">
+			
+			<li><a href="#"  title="Introduction to JMicrobenchs.">Introduction to JMicrobenchs.</a> 
+				<ul>
+			 					 		
+			 		<li><a href="index.html#whats-library-for">What's this library for?</a></li>
+			 					 		
+			 		<li><a href="index.html#whats-micro-benchmark">Whats a micro benchmark?</a></li>
+			 					 		
+			 		<li><a href="index.html#benchmark-phases">Benchmark phases.</a></li>
+			 					 		
+			 		<li><a href="index.html#write-benchmark">Write the benchmark.</a></li>
+			 					 		
+			 		<li><a href="index.html#run-benchmark">Run the benchmark.</a></li>
+			 					 		
+			 		<li><a href="index.html#the-reports">The Reports.</a></li>
+			 					 		
+			 	</ul>
+			</li>
+			
+			<li><a href="doc/index.html">Javadoc</a></li>
+		</ul>
+		
+		<div id="download">
+			<a href="https://github.com/M-jerez/JMicrobenchs/zipball/master" class="button">
+				<img alt="zip download" src="images/zip.png" />
+            	<span>Download <strong>.zip file</strong></span>
+          	</a>
+          	<a href="https://github.com/M-jerez/JMicrobenchs/tarball/master" class="button">
+          		<img alt="tar download" src="images/tar.png" />
+            	<span>Download <strong>.tar file</strong></span>
+          	</a>
+		</div>
+	</div>
+	
+	<div id="content">
+		<section id="main-content">
+			<h1 id="introduction-to-jmicrobenchs">Introduction to JMicrobenchs.</h1>
+
+<h3 id="whats-library-for">What is this library for?</h3>
+<p>This API is intended for help developers to make micro-benchmarks in java and generate nice html reports using charts from <a href="http://www.highcharts.com/">HighChars.com</a>. This library doesn&#8217;t provide advanced profiling functions, like data correction, abnormal measures detection or any other. <em>The main functionality is run benchmarks and generate reports in html displaying performance&#8217;s charts and info about the executed code.</em> The developer is responsible for the benchmark&#8217;s reliability.</p>
+
+<h3 id="whats-micro-benchmark">What is a micro-benchmark?</h3>
+<p>A micro-benchmark measures time performance of portions of code, this can be useful to make a relative image of the code&#8217;s performance, through this micro-benchmarks it&#8217;s possible to find bottlenecks, slow methods or classes etc&#8230; nevertheless micro-benchmarks are not intended to do software profiling. </p>
+
+<p>To get more info about micro-benchmarks you can read the following docs:</p>
+
+<ul>
+  <li><a href="https://code.google.com/p/caliper/wiki/JavaMicrobenchmarks">Caliper micro-benchmarks.</a></li>
+  <li><a href="http://www.ibm.com/developerworks/java/library/j-benchmark1/index.html">Robust benchmarking by Brent Boyer at ibm.</a></li>
+  <li><a href="http://www.ibm.com/developerworks/java/library/j-jtp02225/index.html">Anatomy of a flawed microbenchmark by Brian Goetz at ibm.</a></li>
+  <li><a href="https://wikis.oracle.com/display/HotSpotInternals/MicroBenchmarks">Benchmark tips, oracle HotSpot documentation.</a> </li>
+</ul>
+
+<h3 id="benchmark-phases">Benchmark phases.</h3>
+<p>Each benchmark consist of three different phases where the code is executed a concrete number of times.</p>
+
+<ol>
+  <li><strong>Loading:</strong> This is the first phase and is executed only once. It shows useful results only when the program is being rung by the first time and java must load all classes. This phase is intended to measure cold start performance. <em>Only 1 time.</em></li>
+  <li><strong>Warmup:</strong> This phase must be executed many times to let the JVM make some code optimization, <a href="http://en.wikipedia.org/wiki/Just-in-time_compilation">JIT compile</a>, garbage collection, etc&#8230; During this phase the performance is not measured and will not generate any report. <em>Number of times configurable.</em></li>
+  <li><strong>Profiling:</strong> This is the main phase and it doesn&#8217;t must be executed many times but enough times to calculate a reliable average. Execute this phase more than required could leave to incorrect results as garbage collection or other processes can interfere in the measured time. <em>Number of times configurable.</em> </li>
+</ol>
+
+<h3 id="write-benchmark">Write the benchmark.</h3>
+<p>Implement <code>JMicrobench</code> and put the code you want to profile inside the the <code>runBech()</code> method. To profile one portion of code create a <code>TimeProfiler</code> object and call it&#8217;s functions <code>startCount()</code> and <code>stopCount()</code>.</p>
+
+<p>Liquid error: No such file or directory - pygmentize</p>
+
+<p>As you can see it is not possible to create a <code>TimeProfiler</code> directly, all TimeProfilers are created/accessed in a static way through the <code>Registry</code> class, this class is basically a Map of TimeProfilers objects identified by it&#8217;s title. This behavior allows to access the same <code>TimeProfiler</code> in any point of the executed program. </p>
+
+<p>One drawback is that write this kind of benchmark is too verbose, but this allows to make accurate measures, nested calls etc&#8230;</p>
+
+<h3 id="run-benchmark">Run the benchmark.</h3>
+<p>Create a new instance of your test class, in this case <code>FirstTest</code>; create a new <code>BenchmarkRunner</code> and run it <code>run()</code>;  finally create one of the available <code>Reports</code> and write to File or Output.</p>
+
+<p>Liquid error: No such file or directory - pygmentize</p>
+
+<p>The <code>RenderOptions</code> object is required to configure the generated report, in this case we only have set the relative path were are the java source files. if the source files &#8220;.java&#8221; and the executables &#8220;.class&#8221; are in the same directories this path is a void string -&gt; &#8220;&#8221;. To see more options go to <a href="http://m-jerez.github.com/JMicrobenchs/doc/mjerez/jmicrobench/reports/ReportOptions.html">javadoc.</a></p>
+
+<h3 id="the-reports">The Results.</h3>
+<p>The next graph is an example of the html generated from the previous code. One report like this will be generated for each <code>TimeProfiler</code> object created during the benchmark execution.</p>
+
+<!-- JMicrobench Report -->
+<div class="JbenchReport">
+<div class="chartArea small">
+<script type="text/javascript">var options_chartID8761216 = {"chart":{"renderTo":"container_chartID8761216_PROFILING","type":"bar","marginBottom":37,"height":325,"backgroundColor":"none"},"title":{"text":"FirstTest Performance","align":"center","margin":15,"y":10,"x":0,"verticalAlign":"top"},"subtitle":{"text":"PROFILING phase. 100 times executed.","align":"center","y":30,"x":0},"xAxis":{"categories":["void","HashMap","HashMap-put"],"title":{}},"yAxis":{"min":0.0195,"type":"linear","title":{"text":"microsecons (µs).","align":"middle","x":0,"y":0},"labels":{"overflow":"justify"}},"plotOptions":{"series":{"dataLabels":{"enabled":true,"rotation":0,"y":0,"x":0,"color":"#aac"},"groupPadding":0.1}},"legend":{"layout":"vertical","align":"right","verticalAlign":"top","x":0,"y":0,"floating":true,"borderWidth":1,"backgroundColor":"#FFFFFF","shadow":true,"enabled":false},"credits":{"enabled":true,"href":"https://github.com/M-jerez/JMicrobenchs","text":" JMicrobenchs","position":{"align":"left","x":10,"y":-5}},"series":[{"name":"Average Time","data":[{"color":"#6f9cd1","sliced":false,"y":0.039},{"color":"#B5CA92","sliced":false,"y":0.054},{"color":"#DB843D","sliced":false,"y":0.103}],"pointStart":0}],"colors":["#6f9cd1","#B5CA92","#DB843D","#80699B","#235295","#568956","#AA4643","#c6a80D","#A47D7C","#44cc79"],"millis":false}; 
+ $(document).ready(function() {var chart_chartID8761216 = new Highcharts.Chart(options_chartID8761216);});</script>
+<div class="" id="container_chartID8761216_PROFILING"></div>
+</div>
+<div class="codeArea small">
+<h3>Executed Code.</h3>
+<div class="codeContainer" style="height: 285px">
+<table>
+<tbody>
+<tr>
+<td class="codeInfo"><h4><strong style="color:#6f9cd1">void</strong><br />Class: com.test.FirstTest <br />Lines 20 to 21.</h4></td>
+<td class="code"><pre><code id="code_22413802">/* Nothing Executed here */
+/* time consumed by startCount() &amp; stopCount() */
+</code></pre></td>
+</tr>
+<tr>
+<td class="codeInfo"><h4><strong style="color:#B5CA92">HashMap</strong><br />Class: com.test.FirstTest <br />Line 26.</h4></td>
+<td class="code"><pre><code id="code_7494106">HashMap&lt;String, String&gt; h = new HashMap&lt;String, String&gt;();
+</code></pre></td>
+</tr>
+<tr>
+<td class="codeInfo"><h4><strong style="color:#DB843D">HashMap-put</strong><br />Class: com.test.FirstTest <br />Line 31.</h4></td>
+<td class="code"><pre><code id="code_23671010">h.put("hello", "world");
+</code></pre></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- /JMicrobench Report -->
+
+
+        </section>
+	</div>
+</div>
+<!-- **************************** CONTENT SECTION ******************************** -->
+
+
+<!-- **************************** FOOTER ******************************** -->
+<footer>
+	<p id="owner">This project is mantained by 
+		<a href="http://www.linkedin.com/in/mjerez1" target="blank" title="mjerez Linkeding profile">
+			M-jerez
+		</a> 		
+	</p>
+	<p>
+		<span>Website by M-jerez &#169; All rights reserved.</span>
+		<span>Generated with <a href="https://github.com/mojombo/jekyll">Jekyll</a> &#38; <a href="http://pages.github.com/">GitHub Pages</a> </span>
+	</p>
+</footer>
+<!-- **************************** FOOTER ******************************** -->
+
+
+</body>
+</html>

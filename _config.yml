@@ -1,0 +1,5 @@
+safe: true
+auto: true 
+lsi: false
+pygments: true
+markdown: kramdown
