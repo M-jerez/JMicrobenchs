@@ -1,0 +1,82 @@
+/* ---------- JAVADOC STYLESHEET ------------------------ */
+/* ---------- general styles : MAIN FRAME --------------- */
+body { background-color: #FFFFFF; color:#555; font: normal 80% Verdana, Geneva, sans-serif; }
+body > p{text-align:justify;}
+/* class name -> top right of the page (the big one) */
+h1 , h2{ 
+	font-family: impact; font-size: 145%; color:#2E7BCF; 
+	font-weight:lighter; letter-spacing:1px;
+}
+h2 > font {font-family: monospace; text-shadow:none; font-size:100%;}
+
+/* class name -> top center of the page */
+dl > dt > pre {background: #F9F9F9; border:1px solid #E6E6E6; padding-left:0.5%; }
+dl > dt > pre > b{color:#2E7BCF} 
+/* code & pre */
+code, pre {font: normal 114% monospace;}
+/* Links */
+a:link {color:#258; text-decoration:none; }
+a:visited {color:#258 ; text-decoration:none; }
+a:hover {color:#17d; text-decoration:underline; } 
+
+/* General table styles */
+hr{border-style: none; }
+table{ border-style: none; display:table; border-collapse: collapse;}
+th, tr, td{border-style: none; }
+.TableHeadingColor     { background: #ddd; color:#066807; 
+background: rgb(239,239,239); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(239,239,239,1) 1%, rgba(221,221,221,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,rgba(239,239,239,1)), color-stop(100%,rgba(221,221,221,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(239,239,239,1) 1%,rgba(221,221,221,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(239,239,239,1) 1%,rgba(221,221,221,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(239,239,239,1) 1%,rgba(221,221,221,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(239,239,239,1) 1%,rgba(221,221,221,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#dddddd',GradientType=0 ); /* IE6-9 */
+} /* the head of each section */
+.TableSubHeadingColor  { background: #f8f8f8; color:#777; } 
+.TableRowColor         { background: transparent; color:#777; } 
+
+
+
+
+/* ---------- Summary section : MAIN FRAME ----------------- */
+/* the title of each section */
+.TableHeadingColor    > th { font-family: impact;  border:1px solid #ccc} 
+.TableHeadingColor    > th b { 
+	font-size:17px; font-weight:lighter; 
+	color: #666; letter-spacing:1px
+} 
+/* table styles */
+.TableSubHeadingColor  > th { background: #f8f8f8; border:1px solid #ddd }
+.TableRowColor   td{ background: #fcfcfc; border: solid 1px #ddd; color:#222; padding: 6px 6px 6px 12px; }
+
+
+
+
+
+/* ---------- Detail section : MAIN FRAME ------------------- */
+/* de tittle of each method, constructor, field, etc... */
+h3{font: 115% monospace; color:#2E7BCF; margin-top:10px; margin-bottom:-10px;}
+/* Method detail: return, params, and other annotations */
+dl > dd > dl > dt > b { font-family: monospace; color:#222; font-size:114%;}
+/* adds a bottom line between each method, constructor, etc... */
+hr { border-top:solid 1px #2E7BCF; }
+
+
+/* ---------- Navigation bars -> top-bootom : MAIN FRAME ------ */
+.NavBarCell1    { background-color:#f0f0f0; color:#000000} 
+.NavBarCell1Rev {  background-color:#2E7BCF; color:#FFFFFF;} 
+.NavBarFont1    { font-family: monospace; color:#000; margin: auto 7px; font-size:114%;}
+.NavBarFont1Rev { font-family: monospace; color:#FFFFFF; margin: auto 7px; font-size:120%;}
+.NavBarCell2    { font-family: Arial, Helvetica, sans-serif; background-color:#f0f0f0; color:#000000}
+.NavBarCell3    { font-family: Arial, Helvetica, sans-serif; background-color:#f0f0f0; color:#000000}
+
+
+
+/* ---------------------- LEFT FRAMES ------------------------*/
+.FrameTitleFont   { font-size: 100%; font-family: Helvetica, Arial, sans-serif; color:#2E7BCF }
+.FrameHeadingFont { font-size:  90%; font-family: Helvetica, Arial, sans-serif; color:#2E7BCF }
+.FrameItemFont    { font-size:  90%; font-family: Helvetica, Arial, sans-serif; color:#2E7BCF }
+
+
+
