@@ -195,12 +195,15 @@ ul#navigation > li > a {
 	line-height: 14px;
 	font-size: 14px;
 	padding: 10px 5px;
-	color: #68c;
-	display: block;
 	font-weight:bold;
 	text-decoration: none;
 	border-bottom: solid 1px #e0e0e0;
+	color: #68c;
+	display: block;
+	position: relative;
+	padding-right: 15px;
 }
+
 ul#navigation > ul {
 	margin: 0;
 	padding: 0;
@@ -241,11 +244,13 @@ ul#navigation li > a:hover {
 }
 ul#navigation span{
 	display:block;
-	width:10px;
-	float:right;
-	font-size: 13px;
-	font-weight: bolder;
-	color: #777;
+	font-size: 16px;
+	height:12px;
+	width:12px;
+	position:absolute;
+	right: 0;
+	top:50%;
+	margin-top:-6px;
 }
 /* ---------------------- content ------------------------ */
 #contentSection{
