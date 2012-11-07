@@ -10,9 +10,9 @@ import mjerez.jmicrobench.jtpl.Template;
 
 
 
-/** Generates one HTml block from one {@link TimeProfiler}.
- * It's possible to obtain two different HTml-blocks from one {@link TimeProfiler}, 
- * the chart-block and the code-block.
+/** Generates The time-performance's area or "chart area".
+ *  A HTml block (The HighChart.js) is generated from one {@link TimeProfiler} containing
+ *  info about the code's performance.
  * @author mjerez
  *
  */

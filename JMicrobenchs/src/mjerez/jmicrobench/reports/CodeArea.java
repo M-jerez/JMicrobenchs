@@ -14,8 +14,9 @@ import mjerez.jmicrobench.TimeProfiler;
 import mjerez.jmicrobench.jtpl.Template;
 
 
-/** Generates one HTml block from one {@link TimeElement}.
- * The generated HTml-block have info about the executed code.
+/** Generates the code info area.
+ * A HTml block is generated from one {@link TimeProfiler} containing
+ *  info about the executed code.
  * @author mjerez
  */
 public class CodeArea {
