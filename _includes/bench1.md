@@ -1,4 +1,4 @@
-{% raw %}
+
 <!-- JMicrobench Report -->
 <div class="JbenchReport">
 <div class="chartArea">
@@ -33,4 +33,4 @@
 </div>
 </div>
 <!-- /JMicrobench Report -->
-{% endraw %}
+
