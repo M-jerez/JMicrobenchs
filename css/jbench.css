@@ -65,8 +65,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	
 }
 .JbenchReport .code{
-	/* background color for zenburn hihglight */
-	background: #3F3F3F;
+	background: #777;
 }
 code{
 	border: none !important;
