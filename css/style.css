@@ -276,15 +276,16 @@ ul#navigation span{
 #contentSection > #left .download-button {
   font: bold 1em 'Coming Soon', 'Comic Sans MS', cursive;
   display:block;
+  background: #F8F8F8;
   overflow:hidden;
   color: #68c;
   font-size: 1.1em;
   margin:10px;
   padding: 5px;
   text-decoration: none;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
   text-shadow: 1px 1px 1px #fff;
   border: solid #d0d0d0 1px; 
 }
