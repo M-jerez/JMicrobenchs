@@ -273,7 +273,7 @@ ul#navigation span{
 	width: 240px;
 	margin-right: -240px;
 }
-#contentSection > #left .button {
+#contentSection > #left .download-button {
   font: bold 1em 'Coming Soon', 'Comic Sans MS', cursive;
   display:block;
   overflow:hidden;
@@ -288,19 +288,19 @@ ul#navigation span{
   text-shadow: 1px 1px 1px #fff;
   border: solid #d0d0d0 1px; 
 }
-#contentSection > #left .button:hover {
+#contentSection > #left .download-button:hover {
   background: #68c;
   color: #fff;
   text-shadow: 1px 1px 1px #46a;
 }
-#contentSection > #left .button > span{
+#contentSection > #left .download-button > span{
 	display: block;
 	float: left;
 	height: 100%;
 	line-height: 50px;
 	vertical-align: middle;
 }
-#contentSection > #left .button > img{
+#contentSection > #left .download-button > img{
 	display:block;
 	float:left;
 	height: 50px;
@@ -421,10 +421,6 @@ footer a{
 	height: 100%;
 	border:none;
 	overflow:auto;
-}
-/* ------------------- Socialmedia ---------- */
-#socialmedia{
-	margin: 15px 0;
 }
 /* ------------------- Disqus ---------------- */
 h3#disqus{
