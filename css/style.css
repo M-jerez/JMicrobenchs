@@ -200,7 +200,7 @@ ul#navigation > li > a {
 	font-weight:bold;
 	text-decoration: none;
 	border-bottom: solid 1px #e0e0e0;
-	color: #4cf;
+	color: #4af;
 	display: block;
 	position: relative;
 	padding-right: 15px;
@@ -333,12 +333,12 @@ ul#navigation span{
 	color:#46f;
 }
 #main-content p{
-	margin: 10px 0;
+	margin: 6px 0;
 }
 #main-content > h1 {
   font: bold 1em 'Coming Soon', 'Comic Sans MS', cursive;
-  border-bottom: solid #4cf 2px; 
-  color: #4cf;
+  border-bottom: solid #4af 2px; 
+  color: #4af;
   text-align: center;
   padding: 0px;
   margin-top:15px;
