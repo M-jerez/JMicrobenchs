@@ -23,9 +23,9 @@ To get more info about micro-benchmarks you can read the following docs:
 ### Benchmark phases.  
 Each benchmark consist of three different phases where the code is executed a concrete number of times.
 
-1. **Loading:** This is the first phase and is executed only once. It shows useful results only when the program is being rung by the first time and java must load all classes. This phase is intended to measure cold start performance. *Only 1 time.*
-2. **Warmup:** This phase must be executed many times to let the JVM make some code optimization, [JIT compile](http://en.wikipedia.org/wiki/Just-in-time_compilation), garbage collection, etc... During this phase the performance is not measured and will not generate any report. *Number of times configurable.*
-3. **Profiling:** This is the main phase and it doesn't must be executed many times but enough times to calculate a reliable average. Execute this phase more than required could leave to incorrect results as garbage collection or other processes can interfere in the measured time. *Number of times configurable.* 
+1. **Loading:** This is the first phase and is executed only once. It shows useful results only when the program is being rung by the first time and java must load all classes. This phase is intended to measure cold start performance. *Executed only 1 time.*
+2. **Warmup:** This phase must be executed many times to let the JVM make some code optimization, [JIT compile](http://en.wikipedia.org/wiki/Just-in-time_compilation), garbage collection, etc... During this phase the performance is not measured and will not generate any report. *Number of executed times is  configurable.*
+3. **Profiling:** This is the main phase and it doesn't must be executed many times but enough times to calculate a reliable average. Execute this phase more than required could leave to incorrect results as garbage collection or other processes can interfere in the measured time. *Number of executed times is  configurable.* 
 
 ### Write the benchmark.  
 Implement `JMicrobench` and put the code you want to profile inside the the `runBech()` method. To profile one portion of code create a `TimeProfiler` object and call it's functions `startCount()` and `stopCount()`.
@@ -81,7 +81,7 @@ Create a new instance of your test class, in this case `FirstTest`; create a new
 	}		
 ```
 
-The `RenderOptions` object is required to configure the generated report, in this case we only have set the relative path were are the java source files. if the source files ".java" and the executables ".class" are in the same directory just point to the same path ("."). To see more options go to [javadoc.](http://m-jerez.github.com/JMicrobenchs/javadoc.html)
+The `RenderOptions` object is required to configure the generated report, in this case we only have set the relative path were are the java source files. if the source files ".java" and the executables ".class" are in the same directory just use the dot "." to point to the same path. To see more options go to [javadoc.](http://m-jerez.github.com/JMicrobenchs/javadoc.html)
 
 ### The Results.   
 The next graph is an example of the html generated from the previous code. One report like this will be generated for each `TimeProfiler` object created during the benchmark execution.

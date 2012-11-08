@@ -65,11 +65,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	
 }
 .JbenchReport .code{
-	/* background color for zenburn hihglight */
-	background: #3F3F3F;
+	/* zenburn brackground */
+	background: #3F3F3F;	
 }
-code{
-	border: none !important;
+.JbenchReport code{
+	border: none;
 }
 .JbenchReport pre{
 	margin: 3px !important;
