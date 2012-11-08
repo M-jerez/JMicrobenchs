@@ -12,9 +12,14 @@ import mjerez.jmicrobench.reports.ReportOptions;
 public class FirstTest implements JMicrobench {	
 
 	public void runBench() {
-		String t1 = "void", t2 = "HashMap", t3 = "HashMap-put";
+		String t1 = "Void", t2 = "HashMap", t3 = "HashMap-put", t4 = "Create-dummy";
 		
-		TimeProfiler tp = Registry.getTimeProfiler("FirstTest Performance");		
+		TimeProfiler tp = Registry.getTimeProfiler("FirstTest Performance");	
+		
+		
+		tp.startCount(t4);
+		Dummy dummy = new Dummy();
+		tp.stopCount(t4);
 		
 		tp.startCount(t1);
 		/* Nothing Executed here */
@@ -31,20 +36,6 @@ public class FirstTest implements JMicrobench {
 		h.put("hello", "world");
 		tp.stopCount(t3);	
 		
-		/*tp.startCount(t1+1);
-		 Nothing Executed here 
-		 time consumed by startCount() & stopCount() 
-		tp.stopCount(t1+1);
-
-		 Measures the time required to create a HashMap. 
-		tp.startCount(t2+1);
-		HashMap<String, String> h1 = new HashMap<String, String>();
-		tp.stopCount(t2+1);
-
-		 Measures the time required for the put operation 
-		tp.startCount(t3+1);
-		h1.put("hello", "world");
-		tp.stopCount(t3+1);	*/
 		
 	}
 	
@@ -58,7 +49,7 @@ public class FirstTest implements JMicrobench {
 
 		/* create & run the benchmark */
 		new BenchmarkRunner(warmupLoops, profileLoops,firstTest).run();
-		boolean drawLoad = false, drawProfiling=true, drawCode= true ,  bars=true, smallSize= true;
+		boolean drawLoad = true, drawProfiling=true, drawCode= true ,  bars=true, smallSize= true;
 		String path= "../test/";
 		/* generate the report & write to file */	
 		ReportOptions options = new  ReportOptions(drawLoad, drawProfiling, drawCode, bars, smallSize, path);
