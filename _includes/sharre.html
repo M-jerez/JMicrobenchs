@@ -1,0 +1,26 @@
+<div id="example3">
+  <div id="shareme" data-url="http://sharrre.com/" 
+  data-text="JMicrobenchs share" 
+  data-title="share this page"></div>
+</div>
+<script>
+$('#shareme').sharrre({
+  share: {
+    googlePlus: true,
+    facebook: true,
+    twitter: true,
+    digg: true,
+    delicious: true
+  },
+  buttons: {
+    googlePlus: {size: 'tall'},
+    facebook: {layout: 'box_count'},
+    twitter: {count: 'vertical'},
+    digg: {type: 'DiggMedium'},
+    delicious: {size: 'tall'}
+  },
+  enableHover: false,
+  enableCounter: true,
+  enableTracking: true
+});
+</script>
