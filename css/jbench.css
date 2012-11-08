@@ -44,6 +44,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .JbenchReport table{
 	border-collapse:collapse !important;
 	width: 100% !important;
+	height:100% !important;
 	border:none !important;
 }
 .JbenchReport table tr{
@@ -61,8 +62,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 .JbenchReport .codeInfo{
 	width: 150px;
+	
 }
-
+.JbenchReport .code{
+	/* background color for zenburn hihglight */
+	background: #3F3F3F;
+}
+code{
+	border: none !important;
+}
 .JbenchReport pre{
 	margin: 3px !important;
 	padding: 0 !important;
