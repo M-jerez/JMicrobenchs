@@ -1,10 +1,12 @@
 #socialmedia{
 	padding: 10px;
 	overflow: hidden;
-	margin: 25px auto;
-	width: 190px;
+	margin: 25px 10px;
+	border: solid #D0D0D0 1px;
+	background: #F3F3F3;
 }
 .sharrre .button{
     float:left;
     width:60px;
+    padding: 2px;
  }
