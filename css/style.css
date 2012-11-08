@@ -265,7 +265,7 @@ ul#navigation span{
 	background: #fff;
 	border: 1px solid #ddd;
 	margin-bottom: 20px;
-	padding-bottom: 15px;
+	padding-bottom: 35px;
 	overflow: hidden;
 	max-width: 1400px;
 	min-width: 800px;
@@ -375,6 +375,16 @@ ul#navigation span{
 }
 #main-content ul > li, #main-content ol > li{
 	padding: 2px 0;
+}
+#main-content blockquote{
+	border: solid 1px #d0d0d0;
+	background: #fdfdfd;
+	padding: 30px;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-style: italic;
+    margin: 6px 0;
 }
 /* ----------------- footer ----------------- */
 footer{
