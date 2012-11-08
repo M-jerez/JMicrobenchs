@@ -65,7 +65,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	
 }
 .JbenchReport .code{
-	background: #777;
+	/* zenburn brackground */
+	background: #3F3F3F;
 }
 code{
 	border: none !important;
