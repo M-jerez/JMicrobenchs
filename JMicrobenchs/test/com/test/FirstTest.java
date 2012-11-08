@@ -31,6 +31,21 @@ public class FirstTest implements JMicrobench {
 		h.put("hello", "world");
 		tp.stopCount(t3);	
 		
+		/*tp.startCount(t1+1);
+		 Nothing Executed here 
+		 time consumed by startCount() & stopCount() 
+		tp.stopCount(t1+1);
+
+		 Measures the time required to create a HashMap. 
+		tp.startCount(t2+1);
+		HashMap<String, String> h1 = new HashMap<String, String>();
+		tp.stopCount(t2+1);
+
+		 Measures the time required for the put operation 
+		tp.startCount(t3+1);
+		h1.put("hello", "world");
+		tp.stopCount(t3+1);	*/
+		
 	}
 	
 	
