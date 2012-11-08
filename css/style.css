@@ -191,7 +191,7 @@ ul#navigation {
 	list-style: none;
 	background: #fff;
 	text-align: left;
-	margin-bottom: 100px;
+	margin-bottom: 20px;
 }
 ul#navigation > li > a {
 	line-height: 14px;
@@ -204,7 +204,6 @@ ul#navigation > li > a {
 	display: block;
 	position: relative;
 	padding-right: 15px;
-	cursor: default;
 	text-shadow: 1px 1px 1px #ccc;
 }
 
@@ -255,7 +254,6 @@ ul#navigation span{
 	right: 0;
 	top:50%;
 	margin-top:-6px;
-	cursor: pointer;
 }
 /* ---------------------- content ------------------------ */
 #contentSection{
