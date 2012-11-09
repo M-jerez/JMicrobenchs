@@ -2,8 +2,10 @@ package mjerez.jmicrobench.reports;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.LineNumberReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collection;
 
@@ -116,12 +118,13 @@ public class CodeArea {
 	 */
 	private String getCode(TimeElement elem){		
 		StringBuilder sb =  new StringBuilder(200);		
+		URL url = null;
 		
 		try {
 			String classPath = elem.getRunClass().replace(".","/")+".java";
 			Class<?> runclass = Class.forName(elem.getRunClass());
 			
-			URL url = new URL(runclass.getResource("/"),options.sourcesPath+ classPath);
+			url = new URL(runclass.getResource("/"),options.sourcesPath+ classPath);
 			FileReader fr = new FileReader(new File(url.toURI()));
 			LineNumberReader lnr = new LineNumberReader(fr);
 
@@ -132,10 +135,22 @@ public class CodeArea {
 				sb.append(lnr.readLine().trim()+"\n");
 			}
 			fr.close();
+		}catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			String s = "Source File not found in: /n"+ url.toString()+
+					". /n Check the relative path from the executables to the sources";
+			sb.append(s);
+			throw new RuntimeException(s);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			String s = "The sources path ("+options.sourcesPath+") is not well formed.";
+			sb.append(s);
+			throw new RuntimeException(s);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
+		
 		return sb.toString();
 	}
 }
