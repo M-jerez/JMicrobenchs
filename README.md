@@ -81,7 +81,7 @@ Create a new instance of your test class, in this case `FirstTest`; create a new
 	}		
 ```
 
-The `RenderOptions` object is required to configure the generated report, in this case we only have set the relative path were are the java source files. if the source files ".java" and the executables ".class" are in the same directory just use the dot "." to point to the same path. To see more options go to [javadoc.](http://m-jerez.github.com/JMicrobenchs/javadoc.html)
+The `RenderOptions` object is required to configure the generated report, in this case we only have set the relative path to the java source files. if the source files ".java" and the executables ".class" are in the same directory just use the dot "." to point to the same path. To see more options go to [javadoc.](http://m-jerez.github.com/JMicrobenchs/javadoc.html)
 
 ### The Results.   
 The next graph is an example of the html generated from the previous code. One report like this will be generated for each `TimeProfiler` object created during the benchmark execution.
