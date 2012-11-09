@@ -4,7 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta property="og:image" content="http://m-jerez.github.com/JMicrobenchs/images/logox64.png" />
 
-
 <link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="css/jbench.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="css/zenburn.css" media="screen" />
@@ -14,7 +13,6 @@
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript" src="js/scriptbreaker-multiple-accordion-1.js"></script>
 <script type="text/javascript" src="js/sharrre.min.js"></script>
 <script type="text/javascript" src="js/highlight.js"></script>
 <script type="text/javascript" src="js/highcharts.js"></script>
@@ -24,12 +22,7 @@
 		{document.write(unescape("%3Cscript src='/js/jquery-1.8.2.min.js' type='text/javascript'%3E%3C/script%3E"));}	
 	
 	$(document).ready(function() {		
-		$("#navigation").accordion({
-			accordion:false,
-			speed: 500,
-			closedSign: '>',
-			openedSign: '^'
-		});	
+	
 		
 		
 		$('#shareme').sharrre({
@@ -68,7 +61,7 @@
 	<div id="left">
 		<ul id="navigation">
 			{% for post in site.posts %}
-			<li><a href="#"  title="{{ post.title }}">{{ post.title }}</a> 
+			<li><a href="{{post.url}}"  title="{{ post.title }}">{{ post.title }}</a> 
 				<ul>
 			 	{% for header in post.headers %}				 		
 			 		<li><a href="{{post.url}}#{{header.id}}">{{ header.title}}</a></li>
