@@ -426,13 +426,17 @@ footer a{
 /* ------------------- Disqus ---------------- */
 h3#disqus{
 	margin-top: 50px;
-	margin-bottom: 20px;
-	padding-top:5px;
+	padding:10px;
 	border-top: solid #E0E0E0 1px; 
-	font: bold 1.1em 'Coming Soon', 'Comic Sans MS', cursive;
-  	color: #4af;
-  	text-align: center;
-	text-shadow: 1px 1px 1px #bbb;
+}
+#disqus_thread{
+	background: #F8F8F8;
+	margin:10px;
+	padding: 5px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: solid #d0d0d0 1px; 
 }
 
 
