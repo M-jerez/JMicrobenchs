@@ -102,7 +102,7 @@ padding-top: 80px;
     background: #68C;
     color:#fff;
 	text-align: left;
-	font: bold 1em 'Kite One', sans-serif;
+	font: bold 1em 'Kite One', 'Lucida Console', sans-serif;
 	
 	-moz-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.2);
 	-webkit-box-shadow: 0px 0px 10px rgba(50, 50, 50, 0.2);
@@ -145,7 +145,7 @@ a#github {
   text-decoration: none;
   text-align: center;
   letter-spacing: 1px;  
-  font: bold 0.8em 'Kite One', sans-serif;  
+  font: bold 0.8em 'Kite One', 'Lucida Console', sans-serif;  
   text-shadow: 2px 2px 1px #666;
   	color: #fff;
 }
@@ -166,7 +166,7 @@ a#github > strong {
 	z-index: 100;
 }
 #topMenu > h2{
-  font: normal 0.9em 'Kite One', 'Comic Sans MS', cursive;
+  font: normal 0.9em 'Kite One', 'Lucida Console', sans-serif;
   letter-spacing: 2px; 
   vertical-align: baseline;
   height:16px;
@@ -176,7 +176,7 @@ a#github > strong {
 	margin: 0 20px;
 }
 #topMenu a{
-	font: lighter 100% 'Kite One', 'Lucida Console', cursive;
+	font: lighter 100% 'Kite One', 'Lucida Console', sans-serif;
 	text-shadow:1px 1px 2px #333;
 	color: #ccc;
 	text-decoration: none;
@@ -396,19 +396,20 @@ footer{
 	box-shadow:  0px 4px 10px rgba(50, 50, 50, 0.4);
 	max-width: 1400px;
 	min-width: 800px;
-	font: normal 100% 'Share Tech', Verdana, Arial;
+	font: bold 1em 'Share Tech', Verdana, Arial;
 }
 footer > #owner{
 	letter-spacing: 0.1em;
 	padding-top: 10px;
 	margin-bottom: 0;
+	font: bold 1em 'Kite One', 'Lucida Console', sans-serif;
 }
 footer > p{
 	font: normal 0.8em ;
 	margin-bottom: 5px;
 }
 footer a{
-	color: #68c;
+	color: #468;
 	text-decoration: none;
 }
 /* -----------------javadoc ----------------- */
