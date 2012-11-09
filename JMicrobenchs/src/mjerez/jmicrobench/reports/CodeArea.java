@@ -124,6 +124,7 @@ public class CodeArea {
 			String classPath = elem.getRunClass().replace(".","/")+".java";
 			Class<?> runclass = Class.forName(elem.getRunClass());
 			
+			
 			url = new URL(runclass.getResource("/"),options.sourcesPath+ classPath);
 			FileReader fr = new FileReader(new File(url.toURI()));
 			LineNumberReader lnr = new LineNumberReader(fr);
@@ -137,8 +138,8 @@ public class CodeArea {
 			fr.close();
 		}catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			String s = "Source File not found in: /n"+ url.toString()+
-					". /n Check the relative path from the executables to the sources";
+			String s = "Source File not found in: \n"+ url.toString()+
+					". \n Check the relative path from the executables to the sources";
 			sb.append(s);
 			throw new RuntimeException(s);
 		} catch (MalformedURLException e) {
