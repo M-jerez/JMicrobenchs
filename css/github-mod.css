@@ -1,12 +1,6 @@
 /*
-
 github.com style (c) Vasily Polovnyov <vast@whiteants.net>
-
 */
-
-.highlight pre{
-	overflow-x: auto;
-}
 
 .highlight pre code {
   display: block; padding: 0.5em;
@@ -20,6 +14,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  overflow-x: auto;
 }
 
 .highlight pre .comment,
