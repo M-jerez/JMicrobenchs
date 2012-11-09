@@ -119,8 +119,9 @@ public class CodeArea {
 		
 		try {
 			String classPath = elem.getRunClass().replace(".","/")+".java";
+			Class<?> runclass = Class.forName(elem.getRunClass());
 			
-			URL url = new URL(getClass().getResource("/"),options.sourcesPath+ classPath);
+			URL url = new URL(runclass.getResource("/"),options.sourcesPath+ classPath);
 			FileReader fr = new FileReader(new File(url.toURI()));
 			LineNumberReader lnr = new LineNumberReader(fr);
 
