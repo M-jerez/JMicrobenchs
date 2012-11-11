@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.Collection;
 
 import mjerez.jmicrobench.PhasesProfiler;
 import mjerez.jmicrobench.Registry;
@@ -82,7 +83,9 @@ public class HtmlReport {
 	 * @return A string in HTml format*/
 	protected String getHtml(){
 		StringBuffer sb = new StringBuffer(300);
-		for (PhasesProfiler prof : Registry.getAllPhasesProfilers()) {			
+		Collection<PhasesProfiler> d = Registry.getAllPhasesProfilers();
+		
+		for (PhasesProfiler prof : d) {			
 			ChartArea chartArea = new ChartArea(prof, options);
 			chartArea.genarateChartArea();
 			CodeArea codeArea = new CodeArea(prof, options);
