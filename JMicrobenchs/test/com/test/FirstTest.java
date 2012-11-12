@@ -49,9 +49,9 @@ public class FirstTest implements JMicrobench {
 		/* Report Configuration */
 		boolean drawLoad = false, drawProfiling=true, drawCode= true ,  bars=true, smallSize= true;
 		String path= "../test/";
+		ReportOptions options = new  ReportOptions(drawLoad, drawProfiling, drawCode, bars, smallSize, path);
 		
 		/* generate the report & write to file */	
-		ReportOptions options = new  ReportOptions(drawLoad, drawProfiling, drawCode, bars, smallSize, path);
 		new FullWebReport(options, bench).writeFullWebToFile("C:/Users/mjerez/Desktop/report.html");
 
 	}
