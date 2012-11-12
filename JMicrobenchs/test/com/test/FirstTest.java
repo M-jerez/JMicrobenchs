@@ -16,11 +16,6 @@ public class FirstTest implements JMicrobench {
 		
 		TimeProfiler tp = Registry.getTimeProfiler("FirstTest Performance");	
 		
-		
-		tp.startCount(t4);
-		Dummy dummy = new Dummy();
-		tp.stopCount(t4);
-		
 		tp.startCount(t1);
 		/* Nothing Executed here */
 		/* time consumed by startCount() & stopCount() */
@@ -50,8 +45,11 @@ public class FirstTest implements JMicrobench {
 		/* create & run the benchmark */
 		BenchmarkRunner bench = new BenchmarkRunner(warmupLoops, profileLoops,firstTest);
 		bench.run();
-		boolean drawLoad = true, drawProfiling=true, drawCode= true ,  bars=true, smallSize= true;
+		
+		/* Report Configuration */
+		boolean drawLoad = false, drawProfiling=true, drawCode= true ,  bars=true, smallSize= true;
 		String path= "../test/";
+		
 		/* generate the report & write to file */	
 		ReportOptions options = new  ReportOptions(drawLoad, drawProfiling, drawCode, bars, smallSize, path);
 		new FullWebReport(options, bench).writeFullWebToFile("C:/Users/mjerez/Desktop/report.html");
