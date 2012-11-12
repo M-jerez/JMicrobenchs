@@ -31,11 +31,12 @@ Each benchmark consist of three different phases where the code is executed a co
 Implement `JMicrobench` and put the code you want to profile inside the the `runBech()` method. To profile one portion of code create a `TimeProfiler` object and call it's functions `startCount()` and `stopCount()`.
 
 ```java
-public class FirstTest implements JMicrobench {
+public class FirstTest implements JMicrobench {	
+
 	public void runBench() {
-		String t1 = "void", t2 = "create HashMap", t3 = "HashMap put";
-			
-		TimeProfiler tp = Registry.getTimeProfiler("FirstTest Performance");
+		String t1 = "Void", t2 = "HashMap", t3 = "HashMap-put", t4 = "Create-dummy";
+		
+		TimeProfiler tp = Registry.getTimeProfiler("FirstTest Performance");	
 		
 		tp.startCount(t1);
 		/* Nothing Executed here */
@@ -51,6 +52,8 @@ public class FirstTest implements JMicrobench {
 		tp.startCount(t3);
 		h.put("hello", "world");
 		tp.stopCount(t3);	
+		
+		
 	}
 }
 ```
@@ -65,20 +68,26 @@ One drawback is that write this kind of benchmark is too verbose, but this allow
 Create a new instance of your test class, in this case `FirstTest`; create a new `BenchmarkRunner` and run it `run()`;  finally create one of the available `Reports` and write to File or Output.
 
 ```java
-	public static void main(String[] args) {		
-		int profileLoops = 50;
+	public static void main(String[] args) {
+		
+		int profileLoops = 100;
 		int warmupLoops = profileLoops * 1000;
 		
 		FirstTest firstTest = new FirstTest();
 
 		/* create & run the benchmark */
-		new BenchmarkRunner(warmupLoops, profileLoops,firstTest).run();
-
+		BenchmarkRunner bench = new BenchmarkRunner(warmupLoops, profileLoops,firstTest);
+		bench.run();
+		
+		/* Report Configuration */
+		boolean drawLoad = false, drawProfiling=true, drawCode= true ,  bars=true, smallSize= true;
+		String path= "../test/";
+		
 		/* generate the report & write to file */	
-		ReportOptions options = new  ReportOptions("../test/");
-		new FullWebReport(options).writeFullWebToFile("C:/Users/mjerez/Desktop/report.html");
+		ReportOptions options = new  ReportOptions(drawLoad, drawProfiling, drawCode, bars, smallSize, path);
+		new FullWebReport(options, bench).writeFullWebToFile("C:/Users/mjerez/Desktop/report.html");
 
-	}		
+	}	
 ```
 
 The `RenderOptions` object is required to configure the generated report, in this case we only have set the relative path to the java source files. if the source files ".java" and the executables ".class" are in the same directory just use the dot "." to point to the same path. To see more options go to [javadoc.](http://m-jerez.github.com/JMicrobenchs/javadoc.html)
