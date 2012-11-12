@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.LineNumberReader;
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Collection;
 
@@ -118,15 +120,19 @@ public class CodeArea {
 	 */
 	private String getCode(TimeElement elem){		
 		StringBuilder sb =  new StringBuilder(200);		
-		URL url = null;
+		File f = null;
 		
 		try {
 			String classPath = elem.getRunClass().replace(".","/")+".java";
-			Class<?> runclass = Class.forName(elem.getRunClass());
+			Class<?> runclass = Class.forName(elem.getRunClass()); 
+			
+			if(new URI(options.sourcesPath).isAbsolute())
+				f = new File(options.sourcesPath+ classPath);
+			else 
+				f = new File(runclass.getResource("/").getPath()+options.sourcesPath+ classPath);			
 			
 			
-			url = new URL(runclass.getResource("/"),options.sourcesPath+ classPath);
-			FileReader fr = new FileReader(new File(url.toURI()));
+			FileReader fr = new FileReader(f);
 			LineNumberReader lnr = new LineNumberReader(fr);
 
 			for (int i = 0; i < elem.getStartLine(); i++) {
@@ -138,15 +144,10 @@ public class CodeArea {
 			fr.close();
 		}catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			String s = "Source File not found in: \n"+ url.toString()+
-					". \n Check the relative path from the executables to the sources";
-			sb.append(s);
-			throw new RuntimeException(s);
-		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
-			String s = "The sources path ("+options.sourcesPath+") is not well formed.";
-			sb.append(s);
-			throw new RuntimeException(s);
+			e.printStackTrace();			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

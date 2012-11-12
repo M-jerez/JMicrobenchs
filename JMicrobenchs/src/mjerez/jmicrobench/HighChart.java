@@ -51,6 +51,9 @@ public class HighChart {
 	 */
 	public static void toDoubleChart(TimeProfiler top,TimeProfiler bottom){
 		if(top!=null && bottom!=null){
+			top.getChart().updateHeight();
+			bottom.getChart().updateHeight();
+			
 			HighChart chartL = top.getChart();
 			chartL.getChart().height = Math.round(chartL.getChart().height*0.7f);
 			chartL.credits.enabled = false;

@@ -33,7 +33,8 @@ public class ReportOptions {
 	/** If true, chartsArea and codeArea will be displayed in the same row at the 50% of the space.</br>
 	 * True by default. */
 	public final boolean smallSize;
-	/** relative path from the binaries to the source. This value is required to render the codeArea.</br>
+	/** Path to the sources files. This value is required to render the codeArea.</br>
+	 * It can be an absolute path or a relative path from the binaries to the sources files.
 	 * The system makes use of the function {@link Class#getResourceAsStream(String)} combined with this path
 	 * to find the source code. */
 	public final String sourcesPath;	

@@ -4,8 +4,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Collection;
 
+import mjerez.jmicrobench.BenchmarkRunner;
 import mjerez.jmicrobench.PhasesProfiler;
 import mjerez.jmicrobench.Registry;
 
@@ -33,24 +33,28 @@ public class HtmlReport {
 	
 	/** Render options of the chart. */
 	private final ReportOptions options;	
+	
+	private final BenchmarkRunner bench;
 
 	
 	/** Creates a object responsible to generate an HTml section 
 	 * with default {@link ReportOptions}. */
-	public HtmlReport() {
-		if(Registry.getAllPhasesProfilers().size()==0)
+	public HtmlReport(BenchmarkRunner bench) {
+		if(Registry.getAllPhasesProfilers(bench).size()==0)
 			throw new RuntimeException("No benchmark or TimeProfiler has been created");
 		this.options = new ReportOptions();
+		this.bench = bench;
 	}
 	
 
 	/** Creates a Web HTml section with the indicated {@link ReportOptions}.
 	 * @param options
 	 */
-	public HtmlReport(ReportOptions options){
-		if(Registry.getAllPhasesProfilers().size()==0)
+	public HtmlReport(ReportOptions options, BenchmarkRunner bench){
+		if(Registry.getAllPhasesProfilers(bench).size()==0)
 			throw new RuntimeException("No benchmark or TimeProfiler has been created");
 		this.options = options;
+		this.bench = bench;
 	}
 	
 	
@@ -82,10 +86,8 @@ public class HtmlReport {
 	/** Gets the generated HTml.
 	 * @return A string in HTml format*/
 	protected String getHtml(){
-		StringBuffer sb = new StringBuffer(300);
-		Collection<PhasesProfiler> d = Registry.getAllPhasesProfilers();
-		
-		for (PhasesProfiler prof : d) {			
+		StringBuffer sb = new StringBuffer(300);		
+		for (PhasesProfiler prof : Registry.getAllPhasesProfilers(bench)) {			
 			ChartArea chartArea = new ChartArea(prof, options);
 			chartArea.genarateChartArea();
 			CodeArea codeArea = new CodeArea(prof, options);

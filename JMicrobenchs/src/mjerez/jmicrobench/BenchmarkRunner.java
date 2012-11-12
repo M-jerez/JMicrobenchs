@@ -38,8 +38,8 @@ public class BenchmarkRunner {
 	/** number of loops in the {@link Phase#PROFILING} of the current running benchmark. */
 	private static int profileLoops;
 	
-	/** number of loops in the {@link Phase#PROFILING} of the current running benchmark. */
-	private static long benchID;
+	/** the current benchmark running */
+	private static BenchmarkRunner currentBench;
 
 	/** Gets the current {@link Phase} of the current running benchmark.
 	 * @return the current {@link Phase} */
@@ -53,11 +53,6 @@ public class BenchmarkRunner {
 		return profileLoops;
 	}
 	
-	/** Gets the Id of the current running benchmark.
-	 * @return long Id value. */
-	public synchronized static long getBenchID(){
-		return benchID;
-	}
 	
 	/** Enable/disable the functionality to print to the system.err when each phase starts and ends.
 	 * @param printPhase */
@@ -65,6 +60,13 @@ public class BenchmarkRunner {
 		BenchmarkRunner.printPhase = printPhase;
 	}
 	
+	
+	/** Gets the current runnig benchmark 
+	 * @return A {@link BenchmarkRunner};
+	 */ 
+	public static BenchmarkRunner getCurrentBench() {
+		return currentBench;
+	}
 	
 	/* ------------------------ DINAMIC SECTION ------------------------ */
 	
@@ -91,7 +93,7 @@ public class BenchmarkRunner {
 	/** Runs the benchmark. */
 	public  synchronized void run(){
 		profileLoops = profilingLoops;
-		benchID = this.hashCode();
+		currentBench = this;
 		// load phase.			
 		if(printPhase) 
 			System.err.println("\nStart "+Phase.LOADING+" phase : "+this.toString());

@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.Writer;
 import java.util.Scanner;
 
+import mjerez.jmicrobench.BenchmarkRunner;
 import mjerez.jmicrobench.Registry;
 import mjerez.jmicrobench.jtpl.Template;
 
@@ -39,20 +40,23 @@ public class FullWebReport{
 
 	private final ReportOptions options;	
 	
+	private final BenchmarkRunner bench;
 
 	/** Creates a Web Page with default {@link ReportOptions}. */
-	public FullWebReport() {
+	public FullWebReport(BenchmarkRunner bench) {
 		this.options = new ReportOptions();
+		this.bench = bench;
 	}
 	
 
 	/** Creates a Web Page with the indicated {@link ReportOptions}.
 	 * @param options
 	 */
-	public FullWebReport(ReportOptions options){
-		if(Registry.getAllPhasesProfilers().size()==0)
+	public FullWebReport(ReportOptions options, BenchmarkRunner bench){
+		if(Registry.getAllPhasesProfilers(bench).size()==0)
 			throw new RuntimeException("No benchmark or TimeProfiler has been created");
 		this.options = options;
+		this.bench = bench;
 	}
 	
 	/* ------------------------ METHODS -------------------------- */
@@ -96,7 +100,7 @@ public class FullWebReport{
 						new Scanner(this.getClass().getResourceAsStream(JBENCHFILE)).useDelimiter("\\Z").next()+"\n"
 						);
 				/* #content# */				
-				HtmlReport report = new HtmlReport(options);
+				HtmlReport report = new HtmlReport(options, bench);
 				tpl.assign(VAR_CONTENT, report.getHtml());
 				
 				out.write(tpl.out());

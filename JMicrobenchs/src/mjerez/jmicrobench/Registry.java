@@ -20,8 +20,13 @@ import java.util.LinkedHashMap;
  */
 public class Registry {	
 
-	/** The Dictionary that contains all {@link PhasesProfiler} */
-	private static final HashMap<String, PhasesProfiler> phaseProfilers = new LinkedHashMap<String, PhasesProfiler>();
+	
+	
+	
+	private static final HashMap<BenchmarkRunner, LinkedHashMap<String, PhasesProfiler>> benchMarks = 
+			new  HashMap<BenchmarkRunner, LinkedHashMap<String,PhasesProfiler>>();
+			
+			
 	
 	/** Creates or Access the {@link TimeProfiler} specified by the title and the id of the
 	 * current running benchmark.
@@ -30,20 +35,40 @@ public class Registry {
 	 * @return The corresponding {@link TimeProfiler}.
 	 */
 	public static synchronized TimeProfiler getTimeProfiler(String title){
-		String key = BenchmarkRunner.getBenchID()+title;
+		
+		LinkedHashMap<String, PhasesProfiler> phaseProfilers = getBenchMark();		
+		String key = title;
 		if(phaseProfilers.containsKey(key))
 			return phaseProfilers.get(key).getProfiler(BenchmarkRunner.getPhase());
 		
 		PhasesProfiler phasesp = new PhasesProfiler(title);		
 		phaseProfilers.put(key, phasesp);
-		return phasesp.getProfiler(BenchmarkRunner.getPhase());
-		
+		return phasesp.getProfiler(BenchmarkRunner.getPhase());		
 	}	
+	
+	/** Gets the {@link LinkedHashMap} associated with the current running benchmark
+	 * @return A {@link LinkedHashMap} within the {@link PhasesProfiler}.
+	 */
+	private static LinkedHashMap<String, PhasesProfiler> getBenchMark(){
+		BenchmarkRunner bench = BenchmarkRunner.getCurrentBench();
+		if(benchMarks.containsKey(bench)){
+			return benchMarks.get(bench);
+		}
+		LinkedHashMap<String, PhasesProfiler> phaseProfilers = new LinkedHashMap<String, PhasesProfiler>();
+		benchMarks.put(bench, phaseProfilers);
+		return phaseProfilers;
+	}
+	
 	
 	/** @return All the stored {@link PhasesProfiler} 
 	 * within it's corresponding {@link TimeProfiler}. */
-	public static Collection<PhasesProfiler> getAllPhasesProfilers(){		
-		return phaseProfilers.values();
+	public static Collection<PhasesProfiler> getAllPhasesProfilers(BenchmarkRunner bench){
+		HashMap<BenchmarkRunner, LinkedHashMap<String, PhasesProfiler>> b = benchMarks;
+		
+		if(!benchMarks.containsKey(bench))
+			throw new IllegalArgumentException(
+					"The Benchmark has not yet been run.");
+		return benchMarks.get(bench).values();
 	} 
 	
 	private Registry(){}
