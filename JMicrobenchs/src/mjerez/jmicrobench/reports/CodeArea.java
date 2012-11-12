@@ -5,10 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.LineNumberReader;
-import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.Collection;
 
 import mjerez.jmicrobench.BenchmarkRunner.Phase;
@@ -132,6 +130,8 @@ public class CodeArea {
 				f = new File(runclass.getResource("/").getPath()+options.sourcesPath+ classPath);			
 			
 			
+			
+			
 			FileReader fr = new FileReader(f);
 			LineNumberReader lnr = new LineNumberReader(fr);
 
@@ -144,12 +144,18 @@ public class CodeArea {
 			fr.close();
 		}catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
+			String error = "<span style='color:red'>ERROR: <br/>"+e.getMessage()+"</span>";
+			sb.append(error);
 			e.printStackTrace();
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
+			String error = "<span style='color:red'>ERROR: <br/>"+e.getMessage()+"</span>";
+			sb.append(error);
 			e.printStackTrace();			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			String error = "<span style='color:red'>ERROR: <br/>"+e.getMessage()+"</span>";
+			sb.append(error);
 			e.printStackTrace();
 		} 
 		

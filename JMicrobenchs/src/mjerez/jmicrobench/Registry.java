@@ -62,9 +62,7 @@ public class Registry {
 	
 	/** @return All the stored {@link PhasesProfiler} 
 	 * within it's corresponding {@link TimeProfiler}. */
-	public static Collection<PhasesProfiler> getAllPhasesProfilers(BenchmarkRunner bench){
-		HashMap<BenchmarkRunner, LinkedHashMap<String, PhasesProfiler>> b = benchMarks;
-		
+	public static Collection<PhasesProfiler> getAllPhasesProfilers(BenchmarkRunner bench){		
 		if(!benchMarks.containsKey(bench))
 			throw new IllegalArgumentException(
 					"The Benchmark has not yet been run.");
