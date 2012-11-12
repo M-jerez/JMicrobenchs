@@ -25,7 +25,7 @@ public class TimeProfiler {
 	/** If false any measure will done */
 	private final boolean enabled;
 	/** Number of loops corresponding to the {@link Phase#PROFILING} */
-	private final int profilingLoops;
+	private final int loops;
 	/** The phase which this {@link TimeProfiler} is measuring*/
 	private final Phase phase;
 	/** Dictionary within all {@link TimeElement} of this object. */
@@ -48,7 +48,7 @@ public class TimeProfiler {
 	TimeProfiler(String title,int loops, boolean enable, Phase phase) {		
 		this.title = title;
 		this.enabled = enable;
-		this.profilingLoops = loops;
+		this.loops = loops;
 		this.phase = phase;
 		if(enable==false) return;
 		elements = new LinkedHashMap<String, TimeElement>();
@@ -115,7 +115,7 @@ public class TimeProfiler {
 		HighChart chart = new HighChart();
 		chart.getChart().renderTo = getCointainerId();
 		chart.getTitle().text = getTitle();
-		chart.getSubtitle().text = phase.toString()+" phase. "+profilingLoops+" times executed.";		
+		chart.getSubtitle().text = phase.toString()+" phase.";		
 		
 		chart.setSeries(getSeriesInMilliseconds());
 		if(high*1000<100.0f){
@@ -141,7 +141,7 @@ public class TimeProfiler {
 		data[] data = new data[elms.size()];
 		int i = 0;
 		for (TimeElement tElem : elms) {
-			data[i] = new data(null,tElem.calculeTimePerCicleMillis(profilingLoops));
+			data[i] = new data(null,tElem.calculeTimePerCicleMillis(loops));
 			data[i].setColor(tElem.getColor());
 			if(data[i].getY()<low)low = data[i].getY();
 			if(data[i].getY()>high) high=data[i].getY();
@@ -162,7 +162,7 @@ public class TimeProfiler {
 		data[] data = new data[elms.size()];
 		int i = 0;
 		for (TimeElement tElem : elms) {
-			data[i] = new data(null,tElem.calculeTimePerCicleMicros(profilingLoops));
+			data[i] = new data(null,tElem.calculeTimePerCicleMicros(loops));
 			data[i].setColor(tElem.getColor());
 			if(data[i].getY()<low)low = data[i].getY();
 			if(data[i].getY()>high) high=data[i].getY();
@@ -207,8 +207,18 @@ public class TimeProfiler {
 		return title;
 	}
 	
+	/** Gets info about the executed loops and phase.
+	 * @return A {@link String} with the info.
+	 */
+	public String getLoopsInfo(){
+		return phase.toString()+": "+loops;
+	}
 	
-	
+	/** Gets the number of loops executed by this {@link TimeProfiler}.
+	 * @return A positive int */
+	public int getProfilingLoops() {
+		return loops;
+	}
 	
 
 }

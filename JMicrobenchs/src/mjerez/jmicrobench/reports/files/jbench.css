@@ -17,16 +17,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	/*  
 		!!!!! IMPORTANT !!!!!!! 
 		The height of the class ".code_info" is automatically calculated by the system.
-		For this to be done the total size if this class ".code_tittle"
-		must be 40px, including margins, borders etc..	
+		For this to be done the total size if this element ".JbenchReport  h3" plus ".JbenchReport .phases"
+		must be exactly 45px, including margins, borders etc..	
 	*/ 
 	color:#3E576F !important;
 	font:normal 16px 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif !important;
-	line-height:20px !important;
+	height:20px !important;
 	vertical-align:middle !important;
 	margin:0 !important;
-	padding:10px !important;
+	padding:5px !important;
 	text-align: center !important;
+	padding-bottom: 0 !important;
+}
+.JbenchReport .phases{
+	margin: 0 !important;
+	text-align: center !important;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#6D869F;
+	height: 20px;	
+	padding-left: 10px;
+	overflow: hidden;
+}
+.JbenchReport .phases > span{
+	margin: 0 10px;
+	text-transform: lowercase;
 }
 .JbenchReport .codeContainer{
 	overflow:auto;

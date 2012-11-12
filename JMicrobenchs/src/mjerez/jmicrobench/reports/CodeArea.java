@@ -25,7 +25,7 @@ public class CodeArea {
 	
 	
 	/* default height of the title section */
-	private static final int code_title_Height = 40;
+	private static final int code_title_Height = 45;
 	
 	/* chartArea & chartBlock & variables in the template. */	
 	private static final String CODEAREA = "codeArea";
@@ -33,6 +33,9 @@ public class CodeArea {
 	
 	private static final String VAR_AREASIZE = "small";
 	private static final String VAR_CODESIZE = "codeSize";	
+	private static final String VAR_LOAD = "load";
+	private static final String VAR_WARMUP = "warmup";
+	private static final String VAR_PROFILE = "profile";
 	private static final String VAR_CODETITLE = "codeTitle";
 	private static final String VAR_CODEID = "codeId";
 	private static final String VAR_CODE = "code";
@@ -57,6 +60,7 @@ public class CodeArea {
 		if (!options.drawCode) return;
 		
 		TimeProfiler tpLoad = phasesProfiler.getProfiler(Phase.LOADING);
+		TimeProfiler tpWarmup = phasesProfiler.getProfiler(Phase.WARMUP);
 		TimeProfiler tpProfile = phasesProfiler.getProfiler(Phase.PROFILING);		
 	
 		/* areaSize */
@@ -64,6 +68,11 @@ public class CodeArea {
 			options.HtmlTemplate.assign(VAR_AREASIZE, VAR_AREASIZE);
 		else 
 			options.HtmlTemplate.assign(VAR_AREASIZE, "");
+		
+		/* phases */
+		options.HtmlTemplate.assign(VAR_LOAD, tpLoad.getLoopsInfo());
+		options.HtmlTemplate.assign(VAR_WARMUP, tpWarmup.getLoopsInfo());
+		options.HtmlTemplate.assign(VAR_PROFILE, tpProfile.getLoopsInfo());
 		
 		/* #codeSize# */
 		int heightL = (options.drawLoad)? tpLoad.getChart().getHeight(): 0;

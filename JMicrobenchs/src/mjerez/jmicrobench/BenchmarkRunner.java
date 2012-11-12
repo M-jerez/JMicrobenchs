@@ -38,6 +38,9 @@ public class BenchmarkRunner {
 	/** number of loops in the {@link Phase#PROFILING} of the current running benchmark. */
 	private static int profileLoops;
 	
+	/** number of loops in the {@link Phase#WARMUP} of the current running benchmark. */
+	private static int warmupLoops;
+	
 	/** the current benchmark running */
 	private static BenchmarkRunner currentBench;
 
@@ -49,8 +52,14 @@ public class BenchmarkRunner {
 	
 	/** Gets the number of loops in the {@link Phase#PROFILING} of the current running benchmark.
 	 * @return the number of loops. */
-	public synchronized static int getProfilengLoops(){
+	public synchronized static int getProfilingLoops(){
 		return profileLoops;
+	}
+	
+	/** Gets the number of loops in the {@link Phase#WARMUP} of the current running benchmark.
+	 * @return the number of loops. */
+	public synchronized static int getWarmupLoops(){
+		return warmupLoops;
 	}
 	
 	
@@ -74,9 +83,9 @@ public class BenchmarkRunner {
 	
 	
 	/** number of loops of the warm-up phase */
-	private final int warmupLoops; 
+	private final int warmLoops; 
 	/** number of loops of the profiling-phase phase */
-	private final int profilingLoops;
+	private final int profLoops;
 	/** the {@link BenchmarkRunner} to run */
 	private final JMicrobench bench;
 	
@@ -85,14 +94,15 @@ public class BenchmarkRunner {
 	 * @param runLoops Loops that will be executed during the {@link Phase#PROFILING} phase.
 	 */
 	public  BenchmarkRunner( int warmupLoops, int runLoops, JMicrobench bench) {	
-		this.warmupLoops = warmupLoops;
-		this.profilingLoops = runLoops;
+		this.warmLoops = warmupLoops;
+		this.profLoops = runLoops;
 		this.bench = bench;
 	}
 
 	/** Runs the benchmark. */
 	public  synchronized void run(){
-		profileLoops = profilingLoops;
+		profileLoops = profLoops;
+		warmupLoops = warmLoops;
 		currentBench = this;
 		// load phase.			
 		if(printPhase) 
@@ -109,7 +119,7 @@ public class BenchmarkRunner {
 			System.err.println("\nStart "+Phase.WARMUP+" phase : "
 		+this.toString());
 		phase = Phase.WARMUP;
-		for (int i = 0; i < warmupLoops; i++) {
+		for (int i = 0; i < warmLoops; i++) {
 			bench.runBench();
 		}	
 		if(printPhase) 
@@ -118,7 +128,7 @@ public class BenchmarkRunner {
 		if(printPhase) 
 			System.err.println("\nStart "+Phase.PROFILING+" phase : "+this.toString());
 		phase = Phase.PROFILING;
-		for (int i = 0; i < profilingLoops; i++) {
+		for (int i = 0; i < profLoops; i++) {
 			bench.runBench();
 		}
 		phase = Phase.STOPPED;

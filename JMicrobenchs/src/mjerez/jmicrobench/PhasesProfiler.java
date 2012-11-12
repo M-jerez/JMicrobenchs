@@ -28,8 +28,8 @@ public class PhasesProfiler {
 	public PhasesProfiler(String title) {
 		this.title = title;
 		this.tpLoad =  new TimeProfiler(title,1,true, Phase.LOADING);
-		this.tpWarmup = new TimeProfiler("", 0, false, Phase.WARMUP);
-		this.tpRunning = new TimeProfiler(title,BenchmarkRunner.getProfilengLoops(),true, Phase.PROFILING);
+		this.tpWarmup = new TimeProfiler("", BenchmarkRunner.getWarmupLoops(), false, Phase.WARMUP);
+		this.tpRunning = new TimeProfiler(title,BenchmarkRunner.getProfilingLoops(),true, Phase.PROFILING);
 	}
 	
 	/** Return the corresponding {@link TimeProfiler} depending on the phase.
