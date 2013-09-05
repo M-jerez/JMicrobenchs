@@ -1,6 +1,4 @@
-# ![LOgo](https://raw.github.com/M-jerez/JMicrobenchs/master/media/logox32.png) [ JMicrobenchs's web page](http://m-jerez.github.com/JMicrobenchs/)
-
-##Java micro-benchmarks  made easy.
+# ![LOgo](https://raw.github.com/M-jerez/JMicrobenchs/master/media/logox32.png) [ JMicrobenchs, easy java micro-benchmarks](http://m-jerez.github.com/JMicrobenchs/)
 
 
 ### What is this library for?   
